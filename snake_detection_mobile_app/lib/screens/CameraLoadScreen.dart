@@ -1,10 +1,9 @@
 import 'dart:async';
 import 'dart:io';
-import 'dart:ui';
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:snake_detection_mobile_app/screens/image_upload_screen.dart';
 
 class CameraScreen extends StatefulWidget {
@@ -17,8 +16,10 @@ class CameraScreen extends StatefulWidget {
 class _CameraScreenState extends State<CameraScreen> {
   File? _image;
   File? _flutterImage;
-  Future imgFromGallery() async {
+  Future imgFromCamera() async {
     try {
+      var status = await Permission.camera.status;
+      print("camera permission status: $status");
       final image = await ImagePicker().pickImage(source: ImageSource.camera);
       if (image == null) return;
       final imageTemporary = File(image.path);
@@ -41,7 +42,7 @@ class _CameraScreenState extends State<CameraScreen> {
           child: GestureDetector(
         onTap: () async {
           print('button click..');
-          File? imageName = await imgFromGallery();
+          File? imageName = await imgFromCamera();
           print(imageName);
           Navigator.push(
               context,
