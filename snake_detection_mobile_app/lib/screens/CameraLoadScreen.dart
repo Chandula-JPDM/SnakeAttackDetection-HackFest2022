@@ -38,7 +38,9 @@ class _CameraScreenState extends State<CameraScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.indigo,
       body: Center(
+          
           child: GestureDetector(
         onTap: () async {
           print('button click..');
@@ -53,14 +55,15 @@ class _CameraScreenState extends State<CameraScreen> {
           child: Center(
               child: Text(
             'Go to Camera',
-            style: TextStyle(color: Colors.blue),
+            style: TextStyle(color: Colors.white),
           )),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(40),
-            color: Colors.orange,
+            borderRadius: BorderRadius.circular(50),
+            color: Colors.orange
+  
           ),
-          height: 100,
-          width: 100,
+          height: 120,
+          width: 120,
         ),
       )),
     );

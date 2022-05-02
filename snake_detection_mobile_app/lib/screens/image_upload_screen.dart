@@ -21,7 +21,7 @@ class _ImageUploadScreenState extends State<ImageUploadScreen> {
         Container(
           height: 200,
           width: 300,
-          child: Image.file(widget.image!),
+          child: Image.file(widget.image!, height: 200, width: 300,),
         ),
         SizedBox(height: 30),
         Row(
