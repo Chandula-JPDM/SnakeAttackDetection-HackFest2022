@@ -8,6 +8,13 @@ main = Blueprint('main', __name__)
 def index():
     return 'Landing page'
 
+@main.route('/uploads')
+def upload_file():
+    if request.method == 'POST':
+    f = request.files['the_file']
+    f.save('/var/www/uploads/uploaded_file.txt') 
+
+
 @main.route('/profile')
 @login_required
 def profile():
