@@ -29,7 +29,7 @@ class _CameraScreenState extends State<CameraScreen> {
       });
       // context.read<ImageData>().image = imageTemporary;
       // print(imageTemporary);
-      return imageTemporary;
+      return image.path;
     } on PlatformException catch (e) {
       print("Failed to pick image: $e");
     }
@@ -44,7 +44,7 @@ class _CameraScreenState extends State<CameraScreen> {
           child: GestureDetector(
         onTap: () async {
           print('button click..');
-          File? imageName = await imgFromCamera();
+          String? imageName = await imgFromCamera();
           print(imageName);
           Navigator.push(
               context,
